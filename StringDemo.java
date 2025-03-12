@@ -5,13 +5,14 @@ public class StringDemo {
         // String (Immutable)
         String str = "Hello";
         str.concat(" World"); // This does not modify str
-        System.out.println("String (Immutable): " + str);
+        System.out.println("String (Immutable): " + str);   //Hello
+        
         str = str.concat(" World"); // Assigning the modified value
         System.out.println("After Concatenation: " + str);
 
         // String Comparison
         String s1 = "Java";
-        String s2 = new String("Java");
+        String s2 = new String("Java");   //stored in heap
         String s3 = "Java";
 
         System.out.println("Comparing using == : " + (s1 == s2)); // false, different memory references
@@ -19,8 +20,8 @@ public class StringDemo {
         System.out.println("Comparing using equals() : " + s1.equals(s2)); // true, compares content
 
         // Using intern() for memory optimization
-        String s4 = new String("Java").intern();
-        System.out.println("Comparing interned string using == : " + (s1 == s4)); // true, references same object in string pool
+        String s4 = new String("Java").intern();  // forcefully storing in string pool
+        System.out.println("Comparing interned string using == : " + (s1 == s4)); // true, 
 
         // StringBuffer (Mutable & Thread-Safe)
         StringBuffer stringBuffer = new StringBuffer("Hello");
