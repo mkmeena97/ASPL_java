@@ -1,35 +1,41 @@
 # Java Streams – Important Notes
 
 ## What is a Stream?
-- A **Stream** represents a sequence of elements that can be processed sequentially or in parallel.
-- Introduced in **Java 8**.
-- Streams support **functional-style operations** on collections of elements.
+- A **Stream** represents a sequence of elements supporting **functional-style operations**.
+- Introduced in **Java 8**, part of the `java.util.stream` package.
+- Supports both **sequential** and **parallel** processing.
 
 ## Stream Sources
 - Collections can generate streams using:
-  - `stream()`: for sequential operations
-  - `parallelStream()`: for parallel operations
+  - `stream()` – sequential processing.
+  - `parallelStream()` – parallel processing.
 
 ## Types of Stream Operations
-1. **Intermediate Operations**:
-   - Return a Stream.
-   - Can be chained.
-   - Examples: `filter()`, `map()`, `sorted()`
 
-2. **Terminal Operations**:
-   - Produce a non-stream result or side effect.
-   - Trigger the execution of intermediate operations.
-   - Examples: `forEach()`, `collect()`, `count()`
+### Intermediate Operations:
+- Return another Stream.
+- Lazy – they are not executed until a terminal operation is invoked.
+- Can be chained.
+- Common examples:
+  - `filter()`
+  - `map()`
+  - `sorted()`
+  - `distinct()`
+  - `limit()`
+  - `skip()`
 
-> Once a terminal operation is performed, the Stream is **consumed** and can no longer be used. 
+### Terminal Operations:
+- Trigger processing of the pipeline.
+- Return a result or produce a side-effect.
+- Examples:
+  - `forEach()`
+  - `collect()`
+  - `count()`
+  - `anyMatch()`
+  - `allMatch()`
+  - `reduce()`
 
----
-
-## Key Features
-- Streams can represent **infinite data**.
-- Processing is **element-by-element** (lazy evaluation).
-- They **do not modify** the original data source.
-- **Concise and readable** when used with lambda expressions.
+> **Note**: Once a terminal operation is executed, the Stream is **consumed** and cannot be reused.
 
 ---
 
@@ -37,8 +43,19 @@
 
 ```java
 Stream<String> fruitStream = Stream.of("apple", "banana", "pear", "kiwi", "orange");
+
 fruitStream
-    .filter(s -> s.contains("a"))           // keep fruits with 'a'
-    .map(String::toUpperCase)               // convert to uppercase
-    .sorted()                               // sort alphabetically
-    .forEach(System.out::println);          // print each
+    .filter(s -> s.contains("a"))
+    .map(String::toUpperCase)
+    .sorted()
+    .forEach(System.out::println);
+```
+## Processing Order
+ - Streams can be sequential or parallel:
+   - Sequential streams process elements in the encounter order (if the source is ordered like a ```List, SortedSet,``` etc.).
+   - Parallel streams may process elements in a non-deterministic order for performance gains.
+ - To preserve order in parallel streams, use ```forEachOrdered()``` instead of ```forEach()```:
+ - ```java
+   list.parallelStream()
+    .forEachOrdered(System.out::println);
+   ```
