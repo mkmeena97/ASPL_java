@@ -72,7 +72,7 @@ fruitStream
      lines.forEach(System.out::println);
      }
      ```
- - Streams implement AutoCloseable, allowing them to be used in try-with-resources.
+ - Streams implement ```AutoCloseable```, allowing them to be used in try-with-resources.
  - We can also use onClose() to register a cleanup handler when the stream is closed.
  - Example with ```onClose():```
    - ```java
