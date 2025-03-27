@@ -134,3 +134,4 @@ fruitStream
 
         frequencyMap.entrySet().forEach(System.out::println);
        ```
+---
