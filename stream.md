@@ -131,3 +131,74 @@ fruitStream
         frequencyMap.entrySet().forEach(System.out::println);
        ```
 ---
+## Infinite Streams
+ - you can create infinite streams using methods like ```Stream.iterate()``` and ```Stream.generate()```.
+ - > These streams do not have an inherent end, and if a terminal operation is applied without limiting the stream, it can result in an infinite loop or run indefinitely.
+ - **Using IntStream.iterate()**
+   - ```java
+     // Generate an infinite stream of natural numbers: 1, 2, 3, 4, ...
+      IntStream naturalNumbers = IntStream.iterate(1, x -> x + 1);
+
+      // Print only the first 5 numbers
+      naturalNumbers.limit(5).forEach(System.out::println);
+
+     ```
+  - **Using Stream.generate()**
+    - ```java
+      // Generate an infinite stream of random numbers
+      Stream<Double> infiniteRandomNumbers = Stream.generate(Math::random);
+
+      // Print only the first 10 random numbers
+      infiniteRandomNumbers.limit(10).forEach(System.out::println);
+
+      ```
+---
+
+## 📋 `collect()` Cheat Sheet – Java Stream Collectors
+
+The `collect()` method is a **terminal operation** that transforms the elements of a stream into a **collection**, **map**, or **summary result** using **Collectors**.
+
+- **Collect to a List**
+```java
+Collectors.toList()
+```
+
+- ** Collect to an ArrayList with Pre-allocated Size**
+```java
+Collectors.toCollection(() -> new ArrayList<>(size))
+```
+
+- ** Collect to a Set**
+```java
+Collectors.toSet()
+```
+
+- **Collect to a Set with Better Iteration Performance**
+```java
+Collectors.toCollection(() -> new LinkedHashSet<>())
+```
+
+- **Collect to a Case-Insensitive Set<String>**
+```java
+Collectors.toCollection(() -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER))
+```
+
+- **Collect to an EnumSet<AnEnum> (Best Performance for Enums)**
+```java
+Collectors.toCollection(() -> EnumSet.noneOf(AnEnum.class))
+```
+
+- **Collect to a Map<K, V> with Unique Keys**
+```java
+Collectors.toMap(keyFunction, valueFunction)
+```
+
+- **Map MyObject.getter() to Unique MyObject**
+```java
+Collectors.toMap(MyObject::getter, Function.identity())
+```
+
+- **Map MyObject.getter() to Multiple MyObjects (Grouped)**
+```java
+Collectors.groupingBy(MyObject::getter)
+```
