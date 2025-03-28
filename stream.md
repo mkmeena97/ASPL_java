@@ -159,46 +159,46 @@ fruitStream
 The `collect()` method is a **terminal operation** that transforms the elements of a stream into a **collection**, **map**, or **summary result** using **Collectors**.
 
 - **Collect to a List**
-```java
-Collectors.toList()
-```
+  - ```java
+    Collectors.toList()
+    ```
 
 - ** Collect to an ArrayList with Pre-allocated Size**
-```java
-Collectors.toCollection(() -> new ArrayList<>(size))
-```
+  - ```java
+    Collectors.toCollection(() -> new ArrayList<>(size))
+    ```
 
 - ** Collect to a Set**
-```java
-Collectors.toSet()
-```
+  - ```java
+    Collectors.toSet()
+    ```
 
 - **Collect to a Set with Better Iteration Performance**
-```java
-Collectors.toCollection(() -> new LinkedHashSet<>())
-```
+  - ```java
+    Collectors.toCollection(() -> new LinkedHashSet<>())
+    ```
 
 - **Collect to a Case-Insensitive Set<String>**
-```java
-Collectors.toCollection(() -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER))
-```
+   - ```java
+     Collectors.toCollection(() -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER))
+     ```
 
 - **Collect to an EnumSet<AnEnum> (Best Performance for Enums)**
-```java
-Collectors.toCollection(() -> EnumSet.noneOf(AnEnum.class))
-```
+  - ```java
+    Collectors.toCollection(() -> EnumSet.noneOf(AnEnum.class))
+    ```
 
 - **Collect to a Map<K, V> with Unique Keys**
-```java
-Collectors.toMap(keyFunction, valueFunction)
-```
+  - ```java
+    Collectors.toMap(keyFunction, valueFunction)
+    ```
 
 - **Map MyObject.getter() to Unique MyObject**
-```java
-Collectors.toMap(MyObject::getter, Function.identity())
-```
+  - ```java
+    Collectors.toMap(MyObject::getter, Function.identity())
+    ```
 
 - **Map MyObject.getter() to Multiple MyObjects (Grouped)**
-```java
-Collectors.groupingBy(MyObject::getter)
-```
+  - ```java
+    Collectors.groupingBy(MyObject::getter)
+    ```
