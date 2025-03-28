@@ -109,7 +109,7 @@ fruitStream
        try {
         IntStream.range(1, 10).filter(null);
         } catch (NullPointerException e) {
-          System.out.println("We got a NullPointerException as null was passed as an             argument to filter()");
+          System.out.println("We got a NullPointerException as null was passed as an argument to filter()");
         }
 
        ```
