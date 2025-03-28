@@ -102,10 +102,6 @@ fruitStream
         System.out.println(str);
       }
 
-      for (String str : iterable) {
-        System.out.println(str);
-      }
-
      ```
   - **Argument Validation Happens Immediately**
     - Even without a terminal operation, invalid arguments to intermediate operations are checked immediately.
