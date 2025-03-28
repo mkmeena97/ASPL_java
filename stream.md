@@ -202,3 +202,106 @@ The `collect()` method is a **terminal operation** that transforms the elements 
   - ```java
     Collectors.groupingBy(MyObject::getter)
     ```
+---
+
+## Parallel Stream
+- Use `parallelStream()` or `stream().parallel()` to perform stream operations concurrently.
+- Example:
+  ```java
+  List<String> data = Arrays.asList("One", "Two", "Three", "Four", "Five");
+  Stream<String> aParallelStream = data.parallelStream();
+  aParallelStream.forEach(System.out::println);
+  ```
+- Output order is not guaranteed.
+- Good for performance when ordering is unimportant and CPU-bound operations.
+- Avoid for IO-bound tasks like networking due to shared fork-join pool.
+
+--- 
+
+## Creating a Stream
+- From Collection:
+  ```java
+  Collection<String> stringList = new ArrayList<>();
+  Stream<String> stringStream = stringList.parallelStream();
+  ```
+- From Array:
+  ```java
+  String[] values = { "aaa", "bbbb", "ddd", "cccc" };
+  Stream<String> stream1 = Arrays.stream(values);
+  Stream<String> stream2 = Stream.of(values);
+  ```
+- Stream.of(varargs) can take individual elements:
+  ```java
+  Stream<Integer> integerStream = Stream.of(1, 2, 3);
+  ```
+- Primitive Streams:
+  ```java
+  IntStream intStream = IntStream.of(1, 2, 3);
+  DoubleStream doubleStream = DoubleStream.of(1.0, 2.0, 3.0);
+  IntStream ranged = Arrays.stream(new int[]{1, 2, 3}, 1, 3);
+  ```
+- Convert primitive stream to boxed:
+  ```java
+  Stream<Integer> boxed = intStream.boxed();
+  ```
+- Stream supplier for reusable intermediate operations:
+  ```java
+  Supplier<Stream<String>> streamSupplier = () -> Stream.of("apple", "banana","orange")
+      .map(String::toUpperCase).sorted();
+  ```
+---
+
+ ## Statistics on Numerical Streams
+- Use IntSummaryStatistics:
+  ```java
+  List<Integer> nums = Arrays.asList(1,2,3,4,5);
+  IntSummaryStatistics stats = nums.stream().mapToInt(x -> x).summaryStatistics();
+  System.out.println(stats);
+  ```
+---
+
+## Convert Iterator to Stream
+```java
+Iterator<String> iterator = Arrays.asList("A", "B", "C").iterator();
+Spliterator<String> spliterator = Spliterators.spliteratorUnknownSize(iterator, 0);
+Stream<String> stream = StreamSupport.stream(spliterator, false);
+```
+
+## Index-based Iteration using IntStream
+```java
+String[] names = { "Jon", "Darin", "Bauke", "Hans", "Marc" };
+IntStream.range(0, names.length)
+  .mapToObj(i -> String.format("#%d %s", i + 1, names[i]))
+  .forEach(System.out::println);
+```
+--- 
+
+
+## Concatenate Streams
+- Two streams:
+  ```java
+  Stream<String> concat = Stream.concat(abc.stream(), digits.stream());
+  ```
+- More than two:
+  ```java
+  Stream<String> concat = Stream.of(abc.stream(), digits.stream(), greekAbc.stream())
+                                .flatMap(Function.identity());
+  ```
+
+Section 57.14: Reduction with Streams
+- Custom reduction:
+  ```java
+  OptionalInt result = IntStream.of(1, 2, 3).reduce((a, b) -> a + b);
+  ```
+- With identity element:
+  ```java
+  int sum = IntStream.of(1, 2, 3).reduce(0, Integer::sum);
+  ```
+- Reduce List of Lists:
+  ```java
+  LinkedList<T> combined = listStream.reduce(new LinkedList<T>(), (l1, l2) -> {
+      LinkedList<T> result = new LinkedList<>(l1);
+      result.addAll(l2);
+      return result;
+  });
+  ```
