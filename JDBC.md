@@ -210,7 +210,49 @@ connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
 
 ---
 
-## 11. **Conclusion**
+## 11. **Obtaining a SqlRowSet from SimpleJdbcCall**
+This describes how to directly obtain a SqlRowSet using SimpleJdbcCall with a stored procedure in your database that has a cursor output parameter.
+
+### SimpleJdbcCall creation
+Typically, you will want to create your SimpleJdbcCalls in a Service.
+This example assumes your procedure has a single output parameter that is a cursor; you will need to adjust your declareParameters to match your procedure.
+
+```java
+@Service
+public class MyService() {
+    @Autowired
+    private DataSource dataSource;
+
+    @Value("${db.procedure.schema}")
+    String schema;
+
+    private SimpleJdbcCall myProcCall;
+
+    @PostConstruct
+    void initialize() {
+        this.myProcCall = new SimpleJdbcCall(dataSource)
+                        .withProcedureName("my_procedure_name")
+                        .withCatalogName("my_package")
+                        .withSchemaName(schema)
+                        .declareParameters(new SqlOutParameter(
+                            "out_param_name",
+                            Types.REF_CURSOR,
+                            new SqlRowSetResultSetExtractor()));
+    }
+    public SqlRowSet myProc() {
+        Map<String, Object> out = this.myProcCall.execute();
+        return (SqlRowSet) out.get("out_param_name");
+    }
+}
+```
+
+There are many options available:
+- `withoutProcedureColumnMetaDataAccess()` – Needed for overloaded procedures or avoiding validation.
+- `withReturnValue()` – If the procedure has a return value.
+- `withNamedBinding()` – If you want to use named arguments instead of positional.
+- `useInParameterNames()` – Defines argument order, useful in some cases.
+
+## 12. **Conclusion**
 - `Statement` is simple but inefficient for dynamic queries.
 - `PreparedStatement` is secure and efficient for parameterized queries.
 - `CallableStatement` is used for stored procedures and improves performance.
