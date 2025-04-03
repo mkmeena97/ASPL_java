@@ -157,7 +157,40 @@ System.out.println("Batch executed with " + results.length + " statements.");
 
 ---
 
-## 7. **Comparison of `Statement`, `PreparedStatement`, and `CallableStatement`**
+## 7. **Transaction Isolation Levels in JDBC**
+Transaction isolation levels define the degree to which transactions are isolated from one another.
+
+| Isolation Level | Description |
+|----------------|-------------|
+| `TRANSACTION_READ_UNCOMMITTED` | Lowest level, allows dirty reads, non-repeatable reads, and phantom reads. |
+| `TRANSACTION_READ_COMMITTED` | Prevents dirty reads but allows non-repeatable reads and phantom reads. |
+| `TRANSACTION_REPEATABLE_READ` | Prevents dirty reads and non-repeatable reads but allows phantom reads. |
+| `TRANSACTION_SERIALIZABLE` | Highest level, prevents all issues but has the highest performance cost. |
+
+### **Setting Transaction Isolation Level in JDBC:**
+```java
+connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
+```
+
+---
+
+## 8. **Transaction Issues: Dirty Read, Non-Repeatable Read, and Phantom Read**
+
+### **1. Dirty Read**
+- Occurs when a transaction reads uncommitted data from another transaction.
+- Example: Transaction A modifies a record but hasn’t committed, and Transaction B reads that modified value.
+
+### **2. Non-Repeatable Read**
+- Occurs when a transaction reads a row multiple times and gets different values because another transaction modified it in between.
+- Example: Transaction A reads a record, Transaction B updates it, and Transaction A reads it again, getting a different result.
+
+### **3. Phantom Read**
+- Occurs when a transaction reads a set of rows that change due to another transaction inserting or deleting rows.
+- Example: Transaction A reads all records with `status='active'`, Transaction B inserts a new `active` record, and Transaction A re-executes the query, seeing an extra row.
+
+---
+
+## 9. **Comparison of `Statement`, `PreparedStatement`, and `CallableStatement`**
 
 | Feature | `Statement` | `PreparedStatement` | `CallableStatement` |
 |---------|------------|------------------|----------------|
@@ -168,7 +201,7 @@ System.out.println("Batch executed with " + results.length + " statements.");
 
 ---
 
-## 8. **Best Practices for JDBC**
+## 10. **Best Practices for JDBC**
 - **Always close resources** (`ResultSet`, `Statement`, `Connection`) after use to prevent memory leaks.
 - **Use `PreparedStatement` instead of `Statement`** to prevent SQL injection.
 - **Use batch processing** when inserting/updating multiple rows to improve performance.
@@ -177,8 +210,9 @@ System.out.println("Batch executed with " + results.length + " statements.");
 
 ---
 
-## 9. **Conclusion**
+## 11. **Conclusion**
 - `Statement` is simple but inefficient for dynamic queries.
 - `PreparedStatement` is secure and efficient for parameterized queries.
 - `CallableStatement` is used for stored procedures and improves performance.
 - Execution methods like `executeQuery()`, `executeUpdate()`, and `executeBatch()` help in different SQL operations.
+- Transaction isolation levels help manage concurrency issues like dirty reads, non-repeatable reads, and phantom reads.
