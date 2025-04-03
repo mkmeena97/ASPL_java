@@ -306,11 +306,11 @@ public OrientWebConfigurer orientWebConfigurer() {
 
 ### When to Use Conditional Annotations
 
-- ``: When a class is available in the classpath.
-- ``: When a class is not available.
-- ``: When running in a web environment.
-- ``: When a specific property is set.
-- ``: When a SpEL expression evaluates to true.
+- `@ConditionalOnClass`: When a class is available in the classpath.
+- `@ConditionalOnMissingClass`: When a class is not available.
+- `@ConditionalOnWebApplication`: When running in a web environment.
+- `@ConditionalOnProperty`: When a specific property is set.
+- `@ConditionalOnExpression`: When a SpEL expression evaluates to true.
 
 ---
 
