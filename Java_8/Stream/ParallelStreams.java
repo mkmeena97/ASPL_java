@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+//order does not maintain
+//use when data is independent and ordering not necessary
 public class ParallelStreams {
     public static void main(String[] args) {
 
@@ -27,7 +29,8 @@ public class ParallelStreams {
         // initializing the list using IntStream
         List<Integer> bigList = IntStream.rangeClosed(1, 1_000_000)
                 .boxed()
-                .collect(Collectors.toList());
+                //.collect(Collectors.toList());
+                .toList();
 
         long startSequential = System.currentTimeMillis();
         long sumSequential = bigList.stream()
