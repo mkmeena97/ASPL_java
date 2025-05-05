@@ -2,27 +2,9 @@ package collection;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-
-class Node{
-    public int value;
-
-    public Node next;
-}
-
-
-
-
-
 public class LinkedListExample {
 
 public static void main(String[] args) {
-    
-    // Node node1= new Node();
-    // Node node2= new Node();
-    // node1.value=1;
-    // node1.next= node2;
-    // node2.value=3;
-    // node2.next=null;
 
     LinkedList<Integer> linkedList = new LinkedList<>();
     linkedList.add(2);
