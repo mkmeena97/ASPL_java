@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe6bb82b-abe1-4fd6-858a-8cebee6a836d" name="Changes" comment="java 8 feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design Pattern/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Design Pattern/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/maven/com.stackoverflow.documentation/SpringCoreExample/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/maven/com.stackoverflow.documentation/SpringCoreExample/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mahendra/Desktop/ASPL/ASPL_java/Design Pattern",
+    "last_opened_file_path": "C:/Users/mahendra/Desktop/ASPL/ASPL_Design_pattern",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
