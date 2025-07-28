@@ -1,0 +1,63 @@
+package com.example.Controllers;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.Entities.Todo;
+import com.example.Repositories.TodoRepository;
+
+import Services.TodoService;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/todos")
+public class TodoController {
+
+    private final TodoRepository todoRepository;
+
+    private final TodoService service;
+
+    public TodoController(TodoService service, TodoRepository todoRepository) {
+        this.service = service;
+        this.todoRepository = todoRepository;
+    }
+
+    @GetMapping
+    public Flux<Todo> getAll() {
+        return service.getAllTodos();
+    }
+
+    @GetMapping("/{id}")
+    public Mono<ResponseEntity<Todo>> getById(@PathVariable Long id) {
+        return service.getTodoById(id)
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public Mono<Todo> create(@RequestBody Todo todo) {
+        return service.createTodo(todo);
+    }
+
+    @PutMapping("/{id}")
+    public Mono<ResponseEntity<Todo>> update(@PathVariable Long id, @RequestBody Todo todo) {
+        return service.updateTodo(id, todo)
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<ResponseEntity<Void>> delete(@PathVariable Long id) {
+        return service.deleteTodo(id)
+                .thenReturn(ResponseEntity.noContent().<Void>build());
+    }
+}
+

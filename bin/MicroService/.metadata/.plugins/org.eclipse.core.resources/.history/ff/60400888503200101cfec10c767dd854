@@ -1,0 +1,5 @@
+package com.example.ReactiveMicroService.config;
+
+public class SwaggerConfig {
+
+}
