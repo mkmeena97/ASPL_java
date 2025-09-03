@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package remaining_topics.enums.multiple_constructor;
+=======
+package Revision.enums.multiple_constructor;
+>>>>>>> 254e645d0d81063fc89a08d4215866b14ce70247
 
 public enum Coin {
     PENNY(1, true), NICKEL(5, false), DIME(10), QUARTER(25);

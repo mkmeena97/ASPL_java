@@ -1,4 +1,4 @@
-package Structural_design_pattern.Proxy_design_pattern;
+package Design_pattern.Structural_design_pattern.Proxy_design_pattern;
 
 public class ProxyDatabaseDemo {
     public static void main(String[] args) {

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package remaining_topics.enums.asclass;
+=======
+package Revision.enums.asclass;
+>>>>>>> 254e645d0d81063fc89a08d4215866b14ce70247
 
 public class Coin {
     public static final Coin PENNY = new Coin(1);

@@ -1,0 +1,9 @@
+package Repositories;
+
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+
+import Entities.Todo;
+
+public interface TodoRepository extends ReactiveCrudRepository<Todo, Long> {
+}
+

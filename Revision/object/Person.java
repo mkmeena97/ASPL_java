@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package remaining_topics.object;
+=======
+package Revision.object;
+>>>>>>> 254e645d0d81063fc89a08d4215866b14ce70247
 
 public class Person {
     private String name;

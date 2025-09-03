@@ -1,0 +1,6 @@
+1) what BFS does?
+ - It's a graph traversal algorithm that explores nodes level by level, using a queue.
+2) **Working:**
+ - First, the class has a variable V for the number of vertices and an adjacency list as an array of LinkedLists. The constructor initializes the adjacency list with empty LinkedLists for each vertex. The addEdge method adds a directed edge from v to w.
+ - The bfs method starts by initializing a visited array and a queue. It marks the starting node s as visited and adds it to the queue. Then, while the queue isn't empty, it dequeues a node, prints it, and iterates through its adjacent nodes. For each adjacent node not visited, it marks it as visited and enqueues it.
+ - In the main method, a graph with 4 vertices is created. Edges are added, and BFS is initiated from vertex 2. The expected output should be 2 0 3 1, but wait, let me check. Starting at 2, the adjacent nodes are 0 and 3. So first 2 is dequeued and printed. Then 0 is processed (print 0), then 3. When processing 0, its neighbors are 1 and 2. 1 hasn't been visited, so it's added. Then when processing 3, its neighbor is itself (loop), which is already visited. Then the queue processes 1, which has neighbor 2 (already visited). So the order would be 2, 0, 3, 1. But let me verify step by step.

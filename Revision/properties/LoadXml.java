@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package remaining_topics.properties;
+=======
+package Revision.properties;
+>>>>>>> 254e645d0d81063fc89a08d4215866b14ce70247
 
 import java.io.File;
 import java.io.FileInputStream;
