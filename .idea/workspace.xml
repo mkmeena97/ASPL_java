@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe6bb82b-abe1-4fd6-858a-8cebee6a836d" name="Changes" comment="java 8 feature">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/maven/com.stackoverflow.documentation/SpringCoreExample/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/maven/com.stackoverflow.documentation/SpringCoreExample/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ENUM/TrafficLightTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Preference/ExitConfirmerDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/Spring Projects/Spring core/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/.project" beforeDir="false" afterPath="$PROJECT_DIR$/Spring Projects/Spring core/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/Spring Projects/Spring core/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/maven/com.stackoverflow.documentation/SpringCoreExample/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring Projects/Spring core/target/classes/META-INF/maven/com.stackoverflow.documentation/SpringCoreExample/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/ArrayListExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection/LinkedListExample.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +33,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mkmeena97&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:mkmeena97/ASPL_java.git&quot;,
+    &quot;accountId&quot;: &quot;2d1e837a-0e78-49f6-85df-6ceafd0cf555&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -42,39 +64,29 @@
     "Application.DFSGraph.executor": "Run",
     "Application.Dijkstra.executor": "Run",
     "Application.DynamicProxyTest.executor": "Run",
+    "Application.ExitConfirmerDemo.executor": "Run",
     "Application.FieldDemo.executor": "Run",
     "Application.Graph.executor": "Run",
     "Application.InsertionSort.executor": "Run",
     "Application.KruskalDemo.executor": "Run",
+    "Application.LeaveApprovalClient.executor": "Run",
     "Application.MethodDemo.executor": "Run",
     "Application.MultiThreadingDemo.executor": "Run",
     "Application.ParallelStreams.executor": "Run",
     "Application.PersonComparatorDemo.executor": "Run",
+    "Application.TrafficLightTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/mahendra/Desktop/ASPL/ASPL_Design_pattern",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "last_opened_file_path": "C:/Users/mahendra/Desktop/code/ASPL_java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.ParallelStreams">
-    <configuration name="ConstructorDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Java_8.Reflection.ConstructorDemo" />
-      <module name="ASPL_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Java_8.Reflection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.LeaveApprovalClient">
     <configuration name="DynamicProxyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Java_8.Reflection.DynamicProxyTest" />
       <module name="ASPL_java" />
@@ -88,25 +100,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FieldDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Java_8.Reflection.FieldDemo" />
+    <configuration name="ExitConfirmerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ExitConfirmerDemo" />
       <module name="ASPL_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Java_8.Reflection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MethodDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Java_8.Reflection.MethodDemo" />
+    <configuration name="LeaveApprovalClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Behavioral_Design_Pattern.Chain_of_responsibility_pattern.LeaveApprovalClient" />
       <module name="ASPL_java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Java_8.Reflection.*" />
+          <option name="PATTERN" value="Behavioral_Design_Pattern.Chain_of_responsibility_pattern.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,13 +133,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TrafficLightTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TrafficLightTest" />
+      <module name="ASPL_java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LeaveApprovalClient" />
+        <item itemvalue="Application.TrafficLightTest" />
+        <item itemvalue="Application.ExitConfirmerDemo" />
         <item itemvalue="Application.ParallelStreams" />
         <item itemvalue="Application.DynamicProxyTest" />
-        <item itemvalue="Application.ConstructorDemo" />
-        <item itemvalue="Application.MethodDemo" />
-        <item itemvalue="Application.FieldDemo" />
       </list>
     </recent_temporary>
   </component>
